@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Reserva de Vuelos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2>Vuelos SkyMexin</h2>
+    </header>
+
+    <div class="login-container">
+        <h1>Reserva tu Vuelo</h1>
+        <p class="welcome-message">¡Bienvenido! Por favor, inicia sesión para continuar con tu reserva.</p>
+        
+        <form id="loginForm">
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required placeholder="Ingresa tu nombre de usuario">
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña">
+            
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+
+        <p class="login-redirect">¿No tienes una cuenta? <a href="register.html">Crear Cuenta</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkysMexin. Todos los Derechos Reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

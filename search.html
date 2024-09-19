@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Vuelos - SkyMexin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2>Vuelos SkyMexin</h2>
+    </header>
+
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <br>
+                <br>
+                <br>
+                <li><a href="search.html">Buscar Vuelos</a></li>
+                <li><a href="reservations.html">Reservaciones</a></li>
+                <li><a href="index.html" class="logout-btn">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-container">
+        <div class="search-container">
+            <h1>Buscar Vuelos</h1>
+            <p class="search-message">Encuentra tu vuelo ideal con SkyMexin.</p>
+
+            <form id="searchForm">
+                <label for="origin">Origen:</label>
+                <input type="text" id="origin" name="origin" required placeholder="Ingresa tu ciudad de origen">
+
+                <label for="destination">Destino:</label>
+                <input type="text" id="destination" name="destination" required placeholder="Ingresa tu destino">
+
+                <input type="submit" value="Buscar Vuelos">
+            </form>
+
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkyMexin. Todos los Derechos Reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

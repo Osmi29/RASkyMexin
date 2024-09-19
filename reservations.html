@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reservas - SkyMexin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h2>Vuelos SkyMexin</h2>
+    </header>
+
+
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <br>
+                <br>
+                <br>
+                <li><a href="search.html">Buscar Vuelos</a></li>
+                <li><a href="reservations.html">Reservaciones</a></li>
+                <li><a href="index.html" class="logout-btn">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-container">
+    <div class="search-container">
+        <h1>Gestión de Reservas</h1>
+        <p class="manage-message">Consulta tus reservas con facilidad.</p>
+
+        <form id="reservationsForm">
+            <label for="user_id">ID de Usuario:</label>
+            <input type="text" id="user_id" name="user_id" required placeholder="Ingresa tu ID de usuario">
+
+            <input type="submit" value="Ver Reservas">
+        </form>
+
+        <div id="reservations"></div>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkyMexin. Todos los Derechos Reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
