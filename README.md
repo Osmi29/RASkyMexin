@@ -22,3 +22,6 @@ Implementando servicios web en PHP, una base de datos MySQL y un frontend en HTM
 - Google App Engine / Google Compute Engine: Desplegar los servicios PHP y archivos HTML/CSS. 
 - Google Cloud Storage: (Opcional) Configurar almacenamiento para archivos estáticos si es necesario. 
 - Visual Studio Code: Principal Software de editor de codigo para el desarrollo de la Aplicacion Web
+
+#### Visualizacion de la Aplicacion Web
+https://sl2705.github.io/RASkyMexin/
