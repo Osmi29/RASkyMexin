@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>Vuelos SkyMexin</h2>
+       <a href="index.html"><h2>Vuelos SkyMexin</h2></a> 
     </header>
 
 
@@ -31,7 +31,7 @@
         <h1>Gestión de Reservas</h1>
         <p class="manage-message">Consulta tus reservas con facilidad.</p>
 
-        <form id="reservationsForm">
+        <form id="reservationsForm" method="POST" action="reserve_flight.php">
             <label for="user_id">ID de Usuario:</label>
             <input type="text" id="user_id" name="user_id" required placeholder="Ingresa tu ID de usuario">
 

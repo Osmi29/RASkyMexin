@@ -9,14 +9,14 @@
 </head>
 <body>
     <header>
-        <h2>Vuelos SkyMexin</h2>
+       <a href="index.html"><h2>Vuelos SkyMexin</h2></a>
     </header>
 
     <div class="register-container">
         <h1>Regístrate</h1>
         <p class="welcome-message">¡Bienvenido! Crea una cuenta para comenzar a reservar tus vuelos.</p>
         
-        <form id="registerForm">
+        <form id="registerForm" method="POST" action="auth.php">
             <label for="username">Nombre de usuario:</label>
             <input type="text" id="username" name="username" required placeholder="Elige un nombre de usuario">
             
