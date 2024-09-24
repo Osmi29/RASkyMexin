@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
 
             formData.append('action', 'register');
-            fetch('register_endpoint.php', {
+            fetch('auth.php', {
                 method: 'POST',
                 body: formData,
             })
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(this);
 
             formData.append('action', 'login');
-            fetch('login_endpoint.php', {
+            fetch('auth.php', {
                 method: 'POST',
                 body: formData,
             })
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.success) {
                     alert('Inicio de sesión exitoso');
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'reservations.html';
                 } else {
                     alert('Credenciales incorrectas. Inténtalo de nuevo.');
                 }
