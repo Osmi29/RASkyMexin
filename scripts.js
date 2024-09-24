@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error:', error));
         });
     }
-    
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {

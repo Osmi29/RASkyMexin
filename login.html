@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><h2>Vuelos SkyMexin</h2></a> 
+        <h2>Vuelos SkyMexin</h2>
     </header>
 
     <div class="login-container">
@@ -17,7 +17,6 @@
         <p class="welcome-message">¡Bienvenido! Por favor, inicia sesión para continuar con tu reserva.</p>
         
         <form id="loginForm" method="POST" action="auth.php">
-            <input type="hidden" name="action" value="login"> <!-- Esto indica que la acción es 'login' -->
             <label for="username">Nombre de usuario:</label>
             <input type="text" id="username" name="username" required placeholder="Ingresa tu nombre de usuario">
             

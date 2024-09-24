@@ -26,4 +26,3 @@ CREATE TABLE Reservations (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (flight_id) REFERENCES Flights(flight_id)
 );
-    
