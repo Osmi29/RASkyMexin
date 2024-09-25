@@ -12,57 +12,59 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar conexión
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die(json_encode(["success" => false, "message" => "Connection failed: " . $conn->connect_error]));
 }
+
+// Asegurar que la respuesta siempre sea en JSON
+header('Content-Type: application/json');
 
 // Registro de usuario
 if ($_POST['action'] == 'register') {
     $user = $_POST['username'];
     $pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $email = $_POST['email'];
-    $sql = "INSERT INTO Users (username, password, email) VALUES ('$user', '$pass', '$email')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Registration successful";
-        // Podrías redirigir a la página de inicio de sesión después del registro
-        header("Location: login.html");
-        exit();
+    $stmt = $conn->prepare("INSERT INTO Users (username, password, email) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $user, $pass, $email);
+    
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true, "message" => "Registro exitoso"]);
     } else {
-        echo "Error: " . $conn->error;
+        echo json_encode(["success" => false, "message" => "Error en el registro: " . $conn->error]);
     }
+
+    $stmt->close();
 }
 
 // Inicio de sesión
 if ($_POST['action'] == 'login') {
     $user = $_POST['username'];
     $pass = $_POST['password'];
-    $sql = "SELECT password FROM Users WHERE username='$user'";
-    $result = $conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT password FROM Users WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($pass, $row['password'])) {
-            // Iniciar la sesión
             $_SESSION['username'] = $user;
-            echo "Login successful";
-            // Redirigir al usuario al panel de control o a otra página
-            header("Location: dashboard.php");
-            exit();
+            echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso"]);
         } else {
-            echo "Invalid credentials";
+            echo json_encode(["success" => false, "message" => "Credenciales incorrectas"]);
         }
     } else {
-        echo "No such user";
+        echo json_encode(["success" => false, "message" => "El usuario no existe"]);
     }
+
+    $stmt->close();
 }
 
 // Cerrar sesión
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    // Destruir la sesión
     session_destroy();
-    // Redirigir al login
-    header("Location: login.html");
-    exit();
+    echo json_encode(["success" => true, "message" => "Cierre de sesión exitoso"]);
 }
 
 $conn->close();

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-// Agregar animaciones a la carga de la página
+    // Agregar animaciones a la carga de la página
     const animateOnLoad = () => {
         const elementsToAnimate = document.querySelectorAll('.login-container, .register-container');
         elementsToAnimate.forEach(el => {
@@ -26,15 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response received:', response);  // Log para verificar la respuesta
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
-                    alert('Registro exitoso');                    window.location.href = 'login.html';
+                    alert('Registro exitoso');
+                    window.location.href = 'login.html';
                 } else {
-                    alert('Hubo un error en el registro.');
+                    alert('Hubo un error en el registro: ' + data.message);
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error en la operación de fetch:', error));
         });
     }
 
@@ -49,16 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response received:', response);  // Log para verificar la respuesta
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     alert('Inicio de sesión exitoso');
                     window.location.href = 'reservations.html';
                 } else {
-                    alert('Credenciales incorrectas. Inténtalo de nuevo.');
+                    alert('Credenciales incorrectas. Inténtalo de nuevo: ' + data.message);
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error en la operación de fetch:', error));
         });
     }
 
@@ -71,11 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 150);
         });
     });
+
     const addScrollBackgroundAnimation = () => {
         const background = document.body;
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            background.style.backgroundPositionY = `${scrollPosition * 0.5}px`; 
+            background.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
         });
     };
 
